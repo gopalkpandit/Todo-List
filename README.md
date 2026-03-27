@@ -30,21 +30,16 @@ http://127.0.0.1:3000/
 
 # How Data is Stored.
 
-Currently we store our all tasks in `todos.json` file as JSON Array.
+Currently we store our all tasks in `todos.db`.
 
-```json
-[
-  {
-    "id": 1,
-    "task": "Clean my House",
-    "completed": true
-  },
-  {
-    "id": 2,
-    "task": "Complete my DSA Assignment",
-    "completed": false
-  }
-]
+SQL Table Structure
+
+```sql
+CREATE TABLE Tasks (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      task TEXT NOT NULL,
+      completed BOOLEAN NOT NULL DEFAULT 0
+    );
 ```
 
 # APIs
@@ -64,12 +59,12 @@ curl -X GET http://127.0.0.1:3000/todos
   {
     "id": 1,
     "task": "Clean my House",
-    "completed": true
+    "completed": 0
   },
   {
     "id": 2,
     "task": "Complete my DSA Assignment",
-    "completed": false
+    "completed": 1
   }
 ]
 ```
@@ -81,7 +76,7 @@ We can add new Task. Make sure Task ID should be unique.
 ```bash
 curl -X POST http://127.0.0.1:3000/todos \
 -H 'Content-Type: application/json' \
--d '{"id":3,"task":"Complete my DBMS Homework","completed":false}'
+-d '{"task":"Complete my DBMS Homework"}'
 ```
 
 #### Response:
@@ -95,7 +90,7 @@ Currently It only update completed as : `true or false`
 ```bash
 curl -X PATCH http://127.0.0.1:3000/todos/3 \
 -H 'Content-Type: application/json' \
--d '{"completed":true}'
+-d '{}'
 ```
 
 #### Response:

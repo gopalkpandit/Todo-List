@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
-<title>Todo-list App</title>
-</head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Todo List</title>
+    </head>
 <body>
+    <div class="container">
+        <h1>My Todo List</h1>
+        
+        <!-- Add Todo -->
+        <div class="add-todo">
+            <input type="text" id="newTodoInput" placeholder="Add a new todo..." />
+            <button onclick="addTodo()">
+                <span class="icon-plus"></span>
+                Add
+            </button>
+        </div>
 
-<div class="todo-list">
- <h2>My List</h2>
-  <div class="lists">
-   <li>
-    <p>Lists</p>
-    <p>My Name is GP</p>
-    <p>I am from Dumka, Jharkhand</p>
-    <p>I am currently pursing Btech Cse</p>
-    <p></p>
-   </li>
-  </div>
-  
-</div>
+        <!-- Todo List -->
+        <div class="todo-list" id="todoList"></div>
 
-<section id="btn">
-  <div class="add-btn" >
-   <button onclick="Add" action="/post">Add</button><br>
-   <button onclick="Edit">Edit</button><br>
-   <button onclick="Delete">Delete</button>
-  </div>
-  
-</section>
+        <!-- Summary -->
+        <div class="summary" id="summary"></div>
+    </div>
+
+    <script src="app.js" defer></script>
 </body>
 </html>
