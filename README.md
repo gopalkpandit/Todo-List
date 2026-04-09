@@ -54,21 +54,9 @@ curl -X GET http://127.0.0.1:3000/todos
 ```
 
 #### Response:
-```json
-[
-  {
-    "id": 1,
-    "task": "Clean my House",
-    "completed": 0
-  },
-  {
-    "id": 2,
-    "task": "Complete my DSA Assignment",
-    "completed": 1
-  }
-]
 ```
-
+    Integrated database (todos.db) to handle todo data with improved performance, structured storage, and scalability.
+```
 # 2. Add Task
 
 We can add new Task. Make sure Task ID should be unique.
