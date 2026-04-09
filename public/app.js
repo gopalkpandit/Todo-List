@@ -54,23 +54,63 @@ async function loadTodo() {
     }
 }
 
+async function updateTodo(id){
+  try{
+    const response = await fetch(`http://127.0.0.1:3000/todos/${id}`,{
+      method : "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({})
+    });
+    const data = await response.text();
+    console.log(data);
+  } catch (error){
+    console.error(error);
+  }
+}
+
 
 function renderTodos(data) {
-  // Clear existing items
   todoList.innerHTML = '';
 
   data.forEach(todo => {
     const li = document.createElement('li');
-    
-    // Show the task text
-    li.textContent = todo.task;
+    li.dataset.id = todo.id;
+    const label = document.createElement("label");
 
-    // Optional: style completed tasks
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = todo.completed;
+
+     
+
+    // Add strike-through when checked
     if (todo.completed) {
-      li.style.textDecoration = 'line-through';
-      li.style.color = 'gray';
+      label.style.textDecoration = 'line-through';
+      label.style.color = 'gray';
     }
 
+    // toggle style when checkbox clicked
+    checkbox.addEventListener("change", function () {
+      const id = li.dataset.id;
+      console.log(id);
+      if (this.checked) {
+        label.style.textDecoration = 'line-through';
+        label.style.color = 'gray';
+        console.log(data);
+        updateTodo(id);
+      } else {
+        label.style.textDecoration = 'none';
+        label.style.color = 'black';
+      }
+    }); 
+
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(" " + todo.task));
+
+    li.appendChild(label);
     todoList.appendChild(li);
   });
 }
