@@ -17,6 +17,12 @@ git clone https://github.com/gopalkpandit/Todo-List.git
 ```bash
 cd Todo-List 
 ```
+### Installation
+To install all the required Node.js packages.
+```bash
+npm install
+```
+
 ### Start the Server
 ```bash
 node index.js
