@@ -13,7 +13,7 @@ const todoList = document.querySelector('.todo-list');
         return;
         }
 
-        const response = await fetch('http://127.0.0.1:3000/todos', {
+        const response = await fetch('/todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ "task": taskText })
@@ -38,7 +38,7 @@ const todoList = document.querySelector('.todo-list');
 
 async function loadTodo() {
     try {
-        const response = await fetch('http://127.0.0.1:3000/todos', {
+        const response = await fetch('/todos', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         });
@@ -56,7 +56,7 @@ async function loadTodo() {
 
 async function updateTodo(id){
   try{
-    const response = await fetch(`http://127.0.0.1:3000/todos/${id}`,{
+    const response = await fetch(`/todos/${id}`,{
       method : "PATCH",
       headers: {
         "Content-Type": "application/json"

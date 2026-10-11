@@ -1,3 +1,5 @@
 node_modules/
 .env
 todos.db
+backend/db/todos.db
+backend/node_modules
