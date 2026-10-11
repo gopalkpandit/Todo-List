@@ -76,7 +76,6 @@ not need to set it up manually.
 The project uses Jest, with Supertest for the API integration tests.
 
 ```bash
-cd backend
 npm test                  # Run everything (16 tests)
 npm run test:unit         # Database and SQL query tests (9)
 npm run test:integration  # API tests (7)
